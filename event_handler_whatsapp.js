@@ -80,7 +80,7 @@ module.exports = (discordClient, whatsappClient, messgaeHandle) => {
                     discordChannelId = channelId.discordSeminarChannelId;
                     break;
                 case channelId.whatsappTournamentGroupId:
-                    discordChannelId = channelId.discordSeminarChannelId;
+                    discordChannelId = channelId.discordTournamentChannelId;
                     break;
                 case channelId.hatsappNanikiriGroupId:
                     discordChannelId = channelId.discordNanikiriChannelId;
@@ -166,7 +166,7 @@ module.exports = (discordClient, whatsappClient, messgaeHandle) => {
                 discordChannelId = channelId.discordSeminarChannelId;
                 break;
             case channelId.whatsappTournamentGroupId:
-                discordChannelId = channelId.discordSeminarChannelId;
+                discordChannelId = channelId.discordTournamentChannelId;
                 break;
             case channelId.hatsappNanikiriGroupId:
                 discordChannelId = channelId.discordNanikiriChannelId;

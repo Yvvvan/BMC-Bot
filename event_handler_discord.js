@@ -22,6 +22,7 @@ module.exports = (discordClient, whatsappClient, messgaeHandle) => {
                     message.channelId == channelId.discordNanikiriChannelId ||
                     message.channelId == channelId.discordTestChannelId ||
                     message.channelId == channelId.discordTeamLigaChannelId ||
+                    message.channelId == channelId.discordTournamentChannelId ||
                     message.channelId == channelId.discordBotChannelId ))
                     return;
     
@@ -80,6 +81,9 @@ module.exports = (discordClient, whatsappClient, messgaeHandle) => {
                     break;
                 case channelId.discordTeamLigaChannelId:
                     whatsappChannelId = channelId.whatsappTeamLigaGroupId;
+                    break;
+                case channelId.discordTournamentChannelId:
+                    whatsappChannelId = channelId.whatsappTournamentGroupId;
                     break;
             }
     
@@ -145,6 +149,9 @@ module.exports = (discordClient, whatsappClient, messgaeHandle) => {
         }
         else if (message.channelId === channelId.discordTeamLigaChannelId) {
             whatsappChannelId = channelId.whatsappTeamLigaGroupId;
+        }
+        else if (message.channelId === channelId.discordTournamentChannelId) {
+            whatsappChannelId = channelId.whatsappTournamentGroupId;
         }
         else {
             return;

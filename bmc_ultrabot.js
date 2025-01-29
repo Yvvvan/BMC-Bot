@@ -7,6 +7,7 @@ const async = require('async');
 const schedule = require('node-schedule');
 const { exec } = require('child_process');
 const fs = require('fs');
+const channelId = require('./config.js');
 
 // a random Fortune Cookies generator
 const lucky = require('./src/luck');
@@ -121,13 +122,13 @@ async function testSyncMsg(msg) {
     let discordmsg = '';
     let whatsappmsg = '';
     try {
-        await whatsappClient.sendMessage(whatsappTestGroupId, msg)
+        await whatsappClient.sendMessage(channelId.whatsappTestGroupId, msg)
         .then((message) => { 
             whatsappmsg = message.id._serialized; 
             // console.log('whatsappmsg:', whatsappmsg);
         })
         .catch(console.error);
-        await discordClient.channels.cache.get(discordTestChannelId).send(msg)
+        await discordClient.channels.cache.get(channelId.discordTestChannelId).send(msg)
         .then((message) => { 
             discordmsg = message.id; 
             // open a thread for this message
@@ -153,13 +154,13 @@ async function sendSyncMsg(msg) {
     let discordmsg = '';
     let whatsappmsg = '';
     try {
-        await whatsappClient.sendMessage(whatsappGroupId, msg)
+        await whatsappClient.sendMessage(channelId.whatsappGroupId, msg)
         .then((message) => { 
             whatsappmsg = message.id._serialized; 
             // console.log('whatsappmsg:', whatsappmsg);
         })
         .catch(console.error);
-        await discordClient.channels.cache.get(discordPrivateChannelId).send(msg)
+        await discordClient.channels.cache.get(channelId.discordPrivateChannelId).send(msg)
         .then((message) => { 
             discordmsg = message.id; 
             // console.log('discordmsg:', discordmsg);
@@ -174,7 +175,7 @@ async function sendSyncMsg(msg) {
 async function sendRegListMsg(msg) {
     let discordmsg = '';
     try {
-        await discordClient.channels.cache.get(discordRegListChannelId).send(msg)
+        await discordClient.channels.cache.get(channelId.discordRegListChannelId).send(msg)
         .then((message) => {
             discordmsg = message.id;
         })
