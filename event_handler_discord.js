@@ -2,6 +2,8 @@ const channelId = require('./config.js');
 const axios = require('axios');
 const fs = require('fs');
 const functions = require('./functions.js');
+const { MessageMedia } = require('whatsapp-web.js');
+
 
 const { messageTypeSwitcher, getUserEmoji } = functions;
 var {userNameMap} = functions;
